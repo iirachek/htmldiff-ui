@@ -314,13 +314,13 @@ sub splitit {
 	my $styles = q(<style type='text/css'>
 :root {
 	--diff-old-bg: #fbb;
-	--diff-chg-bg: lime;
-	--diff-new-bg: yellow;
+	--diff-chg-bg: #bfb;
+	--diff-new-bg: #ffa;
 }
 @media (prefers-color-scheme: dark) {
 :root:has(meta[name="color-scheme"][content*="dark"]) {
-	--diff-old-bg: #a11;
-	--diff-chg-bg: #191;
+	--diff-old-bg: #700;
+	--diff-chg-bg: #050;
 	--diff-new-bg: #441;
 }}
 
