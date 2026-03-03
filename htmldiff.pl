@@ -314,13 +314,13 @@ sub splitit {
 	my $styles = q(<style type='text/css'>
 :root {
 	--diff-old-bg: #fbb;
-	--diff-chg-bg: #bfb;
-	--diff-new-bg: #ffa;
+	--diff-chg-bg: lime;
+	--diff-new-bg: yellow;
 }
 @media (prefers-color-scheme: dark) {
 :root:has(meta[name="color-scheme"][content*="dark"]) {
-	--diff-old-bg: #700;
-	--diff-chg-bg: #050;
+	--diff-old-bg: #a11;
+	--diff-chg-bg: #191;
 	--diff-new-bg: #441;
 }}
 
@@ -394,11 +394,14 @@ function setOldDisplay() {
 					next;
 				}
 			}
-			if (m;<!--;) {
+			my $unquoted = $_;
+			$unquoted =~ s/"[^"]*"//g;
+			$unquoted =~ s/'[^']*'//g;
+			if ($unquoted =~ m;<!--;) {
 				while (m;<!--.*-->;) {
 					s/<!--.*?-->//;
 				}
-				if (m;<!--; ) {
+				if ($unquoted =~ m;<!--; ) {
 					$incomment = 1;
 					s/<!--.*//;
 				}
